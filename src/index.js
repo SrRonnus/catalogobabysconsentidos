@@ -9,6 +9,19 @@ const priceElement = document.getElementById('section-price');
 let sections = [];
 let activeSectionId = null;
 
+function escapeHtml(value) {
+    return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function formatTextForHtml(value) {
+    return escapeHtml(value).replace(/\n/g, '<br>');
+}
+
 async function initCatalog() {
     try {
         const response = await fetch('sections.json');
@@ -33,7 +46,7 @@ function renderSectionTabs(sectionData) {
     sectionTabs.innerHTML = sectionData
         .map(
             section => `
-                <button type="button" class="section-tab" data-section="${section.id}">${section.nombre}</button>
+                <button type="button" class="section-tab" data-section="${section.id}">${escapeHtml(section.nombre)}</button>
             `
         )
         .join('');
@@ -61,8 +74,8 @@ async function setActiveSection(sectionId) {
 }
 
 function updateSectionInfo(section) {
-    titleElement.textContent = section.titulo;
-    descriptionElement.textContent = section.descripcion;
+    titleElement.innerHTML = formatTextForHtml(section.titulo);
+    descriptionElement.innerHTML = formatTextForHtml(section.descripcion);
     priceElement.textContent = section.precio;
 }
 
@@ -74,13 +87,17 @@ function renderCards(section, imageFiles) {
 
 function createCard(section, filename) {
     const imagePath = `${section.carpeta}/${filename}`;
+    const title = escapeHtml(section.titulo);
+    const description = formatTextForHtml(section.descripcion);
+    const price = escapeHtml(section.precio);
+
     return `
         <article class="product-card">
-            <img src="${imagePath}" alt="Foto de ${section.titulo}" class="product-image" data-fullimage="${imagePath}" />
+            <img src="${imagePath}" alt="Foto de ${title}" class="product-image" data-fullimage="${imagePath}" />
             <div class="product-info">
-                <h3>${section.titulo}</h3>
-                <p>${section.descripcion}</p>
-                <span class="product-price">A partir de: ${section.precio}</span>
+                <h3>${title}</h3>
+                <p class="product-description">${description}</p>
+                <span class="product-price">A partir de: ${price}</span>
             </div>
         </article>
     `;
@@ -138,4 +155,57 @@ function updateActiveTab(sectionId) {
     });
 }
 
+function initFloatingWhatsApp() {
+    const waFab = document.getElementById('waFab');
+    const waPanel = document.getElementById('waPanel');
+    const waOverlay = document.getElementById('waOverlay');
+
+    if (!waFab || !waPanel || !waOverlay) return;
+
+    const closePanel = () => {
+        waFab.setAttribute('aria-expanded', 'false');
+        waPanel.classList.remove('open');
+        waPanel.setAttribute('aria-hidden', 'true');
+        waOverlay.classList.remove('open');
+        waOverlay.setAttribute('aria-hidden', 'true');
+    };
+
+    const openPanel = () => {
+        waFab.setAttribute('aria-expanded', 'true');
+        waPanel.classList.add('open');
+        waPanel.setAttribute('aria-hidden', 'false');
+        waOverlay.classList.add('open');
+        waOverlay.setAttribute('aria-hidden', 'false');
+    };
+
+    waFab.addEventListener('click', event => {
+        event.stopPropagation();
+        const isOpen = waFab.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+            closePanel();
+        } else {
+            openPanel();
+        }
+    });
+
+    waOverlay.addEventListener('click', closePanel);
+
+    waPanel.addEventListener('click', event => {
+        if (event.target.closest('.wa-contact')) {
+            closePanel();
+        }
+    });
+
+    document.addEventListener('click', event => {
+        const clickedInsideFab = waFab.contains(event.target);
+        const clickedInsidePanel = waPanel.contains(event.target);
+        const clickedOnOverlay = waOverlay.contains(event.target);
+
+        if (!clickedInsideFab && !clickedInsidePanel && !clickedOnOverlay) {
+            closePanel();
+        }
+    });
+}
+
 initCatalog();
+initFloatingWhatsApp();
