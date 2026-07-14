@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Babys Consentidos</title>
+    <link rel="icon" href="images/logo_babysconsentidos.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="hero">
+        <img src="images/logo_babysconsentidos.ico" alt="logo de Babys Consentidos" class="logo">
+        <div class="hero-content">
+            <h1>Catálogo Babys Consentidos</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-section">
+            <div class="catalog-header">
+                <div id="sectionTabs" class="section-tabs"></div>
+                <div class="section-info">
+                    <h2 id="section-title"></h2>
+                    <p id="section-description"></p>
+                    <span id="section-price" class="section-price"></span>
+                </div>
+            </div>
+            <div id="catalogo" class="catalog-grid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Catálogo Babys Consentidos. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <button type="button" id="modalClose" class="modal-close" aria-label="Cerrar imagen">×</button>
+        <img id="modalImage" class="modal-image" src="" alt="Imagen completa del producto">
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+</body>
+</html>
