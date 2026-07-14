@@ -11,7 +11,7 @@
     "id": "nido_cobija",
     "nombre": "Nido + Cobija",
     "titulo": "Nido + Cobija",
-    "descripcion": "Prendas cómodas y de alta calidad que cuidan la piel del bebé.",
+    "descripcion": "Incluye:\n-Nido en tela hipoalergénicas\n-1 almohada cuadrada para cabecita de bebé\n-1 almohada de diseño\n-1 cobija de diseño.",
     "precio": "$43.99",
     "carpeta": "images/nido_cobija"
   },
@@ -19,7 +19,7 @@
     "id": "nido_almohada",
     "nombre": "Nido + Almohada de L",
     "titulo": "Nido + Almohada de Lactancia",
-    "descripcion": "Complementos pensados para paseos cómodos y llenos de estilo.",
+    "descripcion": "Incluye:\n-Nido\n-1 almohada para cabecita de bebé\n-1 almohada de diseño\n-1 almohada grande lactancia.",
     "precio": "$53.99",
     "carpeta": "images/nido_almohada"
   },
@@ -27,8 +27,8 @@
     "id": "menajes",
     "nombre": "Menajes",
     "titulo": "Menajes",
-    "descripcion": "Complementos pensados para paseos cómodos y llenos de estilo.",
-    "precio": "$17.99",
+    "descripcion": "El desarollador aun esta trabajando en esto aun...",
+    "precio": "$",
     "carpeta": "images/menajes"
   }
 ]
