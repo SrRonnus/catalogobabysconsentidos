@@ -3,7 +3,7 @@
     "id": "nidos",
     "nombre": "Nidos de bebé",
     "titulo": "Nido de bebé",
-    "descripcion": "Incluye:\n-Nido en tela hipoalergénicas\n-1 almohada cuadrada para cabecita de bebé\n-1 almohada de diseño.",
+    "descripcion": "Incluye:\n-Nido en tela hipoalergénicas\n-1 almohada altiplana para cabecita de bebé\n-1 almohada de diseño.",
     "precio": "$31.99",
     "carpeta": "images/nidos"
   },
@@ -11,7 +11,7 @@
     "id": "nido_cobija",
     "nombre": "Nido + Cobija",
     "titulo": "Nido + Cobija",
-    "descripcion": "Incluye:\n-Nido en tela hipoalergénicas\n-1 almohada cuadrada para cabecita de bebé\n-1 almohada de diseño\n-1 cobija de diseño.",
+    "descripcion": "Incluye:\n-Nido en tela hipoalergénicas\n-1 almohada altiplana para cabecita de bebé\n-1 almohada de diseño\n-1 cobija de diseño.",
     "precio": "$43.99",
     "carpeta": "images/nido_cobija"
   },
@@ -19,7 +19,7 @@
     "id": "nido_almohada",
     "nombre": "Nido + Almohada de L",
     "titulo": "Nido + Almohada de Lactancia",
-    "descripcion": "Incluye:\n-Nido\n-1 almohada para cabecita de bebé\n-1 almohada de diseño\n-1 almohada grande lactancia.",
+    "descripcion": "Incluye:\n-Nido\n-1 almohada altiplana para cabecita de bebé\n-1 almohada de diseño\n-1 almohada grande lactancia.",
     "precio": "$53.99",
     "carpeta": "images/nido_almohada"
   },
